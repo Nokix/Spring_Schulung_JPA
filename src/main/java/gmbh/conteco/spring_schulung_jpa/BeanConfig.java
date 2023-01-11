@@ -1,23 +1,20 @@
 package gmbh.conteco.spring_schulung_jpa;
 
 
-import gmbh.conteco.spring_schulung_jpa.entity.Guardian;
-import gmbh.conteco.spring_schulung_jpa.entity.Student;
+import gmbh.conteco.spring_schulung_jpa.entity.*;
 import gmbh.conteco.spring_schulung_jpa.repository.StudentRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@AllArgsConstructor
 public class BeanConfig {
 
-    @Autowired
     private StudentRepository studentRepository;
-
-//    public BeanConfig(StudentRepository studentRepository) {
-//        this.studentRepository = studentRepository;
-//    }
+    private CourseRepository courseRepository;
 
     @Bean
     public CommandLineRunner myApp() {
@@ -34,6 +31,18 @@ public class BeanConfig {
                     .guardian(guardian)
                     .build();
             studentRepository.save(student0);
+
+            CourseMaterial material = CourseMaterial.builder()
+                    .url("uni.de/ana1")
+                    .build();
+
+            Course course = Course.builder().title("Analysis I")
+                    .credits(8)
+                    .courseMaterial(material)
+                    .build();
+
+            courseRepository.save(course);
+
         };
     }
 }
