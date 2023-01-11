@@ -23,7 +23,8 @@ public class Course {
     private Integer credits;
     private String title;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
+            , fetch = FetchType.LAZY)
     private CourseMaterial courseMaterial;
 
 }

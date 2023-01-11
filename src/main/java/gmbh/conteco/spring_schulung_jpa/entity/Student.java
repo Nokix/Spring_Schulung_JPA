@@ -28,4 +28,8 @@ public class Student {
 
     @Embedded
     private Guardian guardian;
+
+    @OneToOne
+    @ToString.Exclude
+    private Student partner;
 }
