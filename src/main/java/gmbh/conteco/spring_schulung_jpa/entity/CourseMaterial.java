@@ -21,4 +21,7 @@ public class CourseMaterial {
 
     private String url;
 
+    @OneToOne(mappedBy = "courseMaterial")
+    private Course course;
+
 }

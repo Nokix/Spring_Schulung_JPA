@@ -23,8 +23,9 @@ public class Course {
     private Integer credits;
     private String title;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
-            , fetch = FetchType.LAZY)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY)
+    @JoinColumn(name = "cmat")
     private CourseMaterial courseMaterial;
 
 }

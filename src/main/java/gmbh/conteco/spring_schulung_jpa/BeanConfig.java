@@ -51,10 +51,6 @@ public class BeanConfig {
 
             courseService.printAllCourseMaterialNames();
 
-//            List<Course> all = courseRepository.findAll();
-//            System.out.println(all.get(0).getCourseMaterial().getUrl());
-//            System.out.println();
-
         };
     }
 }
