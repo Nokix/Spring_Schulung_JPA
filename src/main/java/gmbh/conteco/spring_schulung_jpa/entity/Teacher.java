@@ -22,8 +22,7 @@ public class Teacher {
     private Long id;
     private String name;
 
-    @OneToMany
-    @JoinColumn(name = "taught_by")
+    @OneToMany(mappedBy = "teacher")
     private List<Course> taughtCourses;
 
 }

@@ -44,20 +44,25 @@ public class BeanConfig {
                     .url("uni.de/ana1")
                     .build();
 
+
+            Teacher teacher = Teacher.builder().name("Kohl")
+                    .build();
+            teacherRepository.save(teacher);
+
             Course course0 = Course.builder().title("Analysis I")
                     .credits(8)
                     .courseMaterial(material)
+                    .teacher(teacher)
                     .build();
 
-            courseRepository.save(course0);
+            course0 = courseRepository.save(course0);
 
             Course course1 = Course.builder().title("Analysis III")
+                    .teacher(teacher)
                     .credits(10).build();
-            courseRepository.save(course1);
+            course1 = courseRepository.save(course1);
 
-            Teacher teacher = Teacher.builder().name("Kohl")
-                    .taughtCourses(List.of(course0, course1)).build();
-            teacherRepository.save(teacher);
+
 
         };
     }

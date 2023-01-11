@@ -23,5 +23,4 @@ public class CourseMaterial {
 
     @OneToOne(mappedBy = "courseMaterial")
     private Course course;
-
 }

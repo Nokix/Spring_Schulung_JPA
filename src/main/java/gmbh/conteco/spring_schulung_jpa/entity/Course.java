@@ -28,4 +28,7 @@ public class Course {
     @JoinColumn(name = "cmat")
     private CourseMaterial courseMaterial;
 
+    @ManyToOne
+    private Teacher teacher;
+
 }
